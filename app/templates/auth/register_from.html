@@ -1,0 +1,20 @@
+{% extends "base/base_form.html" %}
+
+{% block title %}
+    Registro de usuarios
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.name.label }}
+            {{ form.name }}<br>
+            {{ form.email.label }}
+            {{ form.email }}<br>
+            {{ form.password.label }}
+            {{ form.password }}<br> 
+            {{ form.submit() }}
+        </div>
+    </form>
+{% endblock %}
