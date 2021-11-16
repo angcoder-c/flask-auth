@@ -6,8 +6,7 @@ from app.models import User
 @bp_public.route('/')
 def index():
     context = {
-        'current_user' : current_user,
-        'users_list' : User.query.all()
+        'current_user' : current_user
     }
 
     if current_user.is_authenticated:
@@ -22,6 +21,21 @@ def home():
         'current_user': current_user
     }
     return render_template('public/home.html', **context)
+
+@bp_public.route('/tutorial/')
+def tutorial():
+    context = {
+        'current_user': current_user
+    }
+    return render_template('public/tutorial.html', **context)
+
+@bp_public.route('/users/')
+def users():
+    context = {
+        'current_user': current_user,
+        'users_list' : User.query.all()
+    }
+    return render_template('public/users.html', **context)
 
 @bp_public.route('/<string:name>/')
 def profile(name):
