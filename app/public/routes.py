@@ -1,17 +1,32 @@
-from flask import render_template
-from flask_login import current_user
+from flask import render_template, redirect
+from flask_login import current_user, login_required
 from . import bp_public
 from app.models import User
 
 @bp_public.route('/')
-@bp_public.route('/home/<string:name>/')
-def index(name = None):
-    context = {'name': name,
-               'auth_user': current_user.is_authenticated,
-               'users_list' : User.query.all()
+def index():
+    context = {
+        'current_user' : current_user,
+        'users_list' : User.query.all()
     }
+
+    if current_user.is_authenticated:
+        return redirect('home')
+
     return render_template('public/index.html', **context)
+
+@bp_public.route('/home/')
+@login_required
+def home():
+    context = {
+        'current_user': current_user
+    }
+    return render_template('public/home.html', **context)
 
 @bp_public.route('/<string:name>/')
 def profile(name):
-    return render_template('public/profile.html', user = User.query.filter_by(name=name).first())
+    context = { 
+        'user' : User.query.filter_by(name=name).first(),
+        'current_user' : current_user
+    }
+    return render_template('public/profile.html', **context)

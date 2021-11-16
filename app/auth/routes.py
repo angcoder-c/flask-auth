@@ -9,7 +9,7 @@ from app.models import User
 @bp_auth.route('/register/', methods = ['GET','POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('public.index', name = current_user.name))
+        return redirect(url_for('public.home'))
     form = RegisterForm()
     if form.validate_on_submit():
         name = form.name.data
@@ -28,14 +28,14 @@ def register():
 
             next_page = request.args.get('next', None)
             if not next_page:
-                next_page = url_for('public.index', name = user.name)
+                next_page = url_for('public.home')
             return redirect(next_page)
     return render_template('auth/register_from.html', form=form)
 
 @bp_auth.route('/login/', methods = ['GET','POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('public.index', name = current_user.name))
+        return redirect(url_for('public.home'))
     form = LoginForm()
     if form.validate_on_submit():
         email = form.email.data
@@ -46,7 +46,7 @@ def login():
             login_user(user, remember=True)
             next_page = request.args.get('next', None)
             if not next_page:
-                next_page = url_for('public.index', name = user.name)
+                next_page = url_for('public.home')
             return redirect(next_page)
         else:
             return redirect(url_for('auth.register'))

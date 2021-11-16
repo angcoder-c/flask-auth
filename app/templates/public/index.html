@@ -1,28 +1,25 @@
 {% extends 'base/base.html' %}
 {% block title %}
-    Home
+    Conoce personas interesantes
+{% endblock %}
+
+{% block nav %}
+    <ul>
+        <li><a href="{{ url_for('auth.register') }}">Registrarse</a></li>
+        <li><a href="{{ url_for('auth.login') }}">Iniciar sesión</a></li>
+    </ul>
 {% endblock %}
 
 {% block content %}
-    <ul>
-        {% if not auth_user %}
-            <li><a href="{{ url_for('auth.register') }}">Registrarse</a></li>
-            <li><a href="{{ url_for('auth.login') }}">Iniciar sesión</a></li>
-        {% else %}
-            <li><a href="{{ url_for('auth.logout') }}">Cerrar sesión</a></li>
+
+    <h1>Home</h1>
+
+<!---   {% for user in users_list %}
+        {% if user != current_user %}
+            <div class="users_list">
+                <h3><a href="{{ url_for('public.profile', name = user.name) }}">{{ user.name }}</a></h3>
+                <p>{{ user.email }}</p>
+            </div>
         {% endif %}
-    </ul>
-    <h1>Home, 
-        {% if name %} 
-            {{ name }} 
-        {% else %}
-            Persona 
-        {% endif %}
-    </h1>
-    {% for user in users_list %}
-        <div class="users_list">
-            <h3><a href="{{ url_for('public.profile', name = user.name) }}">{{ user.name }}</a></h3>
-            <p>{{ user.email }}</p>
-        </div>
-    {% endfor %}
+    {% endfor %}--> 
 {% endblock %}

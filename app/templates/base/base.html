@@ -6,8 +6,17 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     </head>
     <body>
-        <h1>base</h1>
+        <header>
+            <nav>
+                {% block nav %}
+                {% endblock %}
+            </nav>
+        </header>
+        
         {% block content %}
         {% endblock %}
+        <footer>
+            ESTE ES EL FOOTER
+        </footer>
     </body>
 </html>
