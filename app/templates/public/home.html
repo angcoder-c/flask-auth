@@ -5,7 +5,7 @@
 
 {% block nav %}
     <ul>
-        <a href="{{ url_for('public.index') }}"><img src="{{ url_for('static', filename='images/branding/logo.png') }}" alt="logo"></a>
+        <li><a href="{{ url_for('public.index') }}"><b>FLASK_AUTH</b></a></li>
         <li><a href="{{ url_for('public.tutorial') }}">Tutorial</a></li>
         <li><a href="{{ url_for('public.users') }}">Users</a></li>
         <li><a href="{{ url_for('auth.logout') }}">Cerrar sesión</a></li>

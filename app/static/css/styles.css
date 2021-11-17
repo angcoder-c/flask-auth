@@ -1,8 +1,11 @@
 body {
-    background-color: rgb(10, 13, 54);
-    color: white
+    background-color: #051318;
+    color: white;
+    font-family: Verdana, 'Courier New', Courier, monospace;
+    margin: auto;
 }
 
+/*NavBar*/
 a {
     text-decoration: none;
     color: white;
@@ -17,7 +20,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #7d173e;
+    background-color: #0D1D23;
 }
   
 li {
@@ -32,7 +35,36 @@ li a {
     text-decoration: none;
 }
   
-/* Change the link color to #111 (black) on hover */
 li a:hover {
-    background-color: #111;
+    color: #999;
+}
+
+/*Footer*/
+footer {
+    background-color: #0D1D23;
+    padding: 5%;
+    display: inline-flex;
+    text-align: center;
+    position: inherit;
+    bottom: 0;
+}
+.about {
+    display: inherit;
+    padding: 32px; 
+    float: left; 
+    width: 25%; 
+    text-align: justify;
+}
+
+.about div {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+.about div b {
+    font-size: 25px;
+}
+
+.contact ul {
+    display: inline-grid;
 }

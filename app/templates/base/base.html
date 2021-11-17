@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <title>App | {% block title %}{% endblock %}</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    </head>
-    <body>
-        <header>
-            <nav>
-                {% block nav %}
-                {% endblock %}
-            </nav>
-        </header>
-        
-        {% block content %}
-        {% endblock %}
-        <footer>
-            ESTE ES EL FOOTER
-        </footer>
-    </body>
+
+<head>
+    <meta charset="utf-8" />
+    <title>App | {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <nav>
+            {% block nav %}
+            {% endblock %}
+        </nav>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+    <footer>
+        <div class="about">
+            <div>
+                <b>FLASK_AUTH</b>
+            </div>
+        </div>
+        <hr>
+        <div class="about">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non quod corporis natus voluptatem
+            perspiciatis. Aliquam eaque facere nemo repellat culpa in temporibus, voluptatum eius fuga, corrupti facilis
+            quaerat vel deserunt</p>
+        </div>
+        <hr>
+        <div class="about">
+            <div class="contact">
+                <ul>
+                    <li><a href=""> <i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href=""> <i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href=""> <i class="fab fa-youtube"></i> Youtube</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
 </html>
