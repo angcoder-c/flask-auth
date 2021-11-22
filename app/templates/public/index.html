@@ -1,64 +1,49 @@
 {% extends 'base/base.html' %}
+
 {% block title %}
 Conoce personas interesantes
 {% endblock %}
 
-{% block nav %}
-<ul>
-
-    <li><a href="{{ url_for('public.index') }}"><b>FLASK_AUTH</b></a></li>
-    <li><a href="{{ url_for('public.tutorial') }}">Tutorial</a></li>
-    <li><a href="{{ url_for('public.users') }}">Users</a></li>
-    <li><a href="{{ url_for('auth.register') }}">Registrarse</a></li>
-    <li><a href="{{ url_for('auth.login') }}">Iniciar sesión</a></li>
-</ul>
-{% endblock %}
-
 {% block content %}
 
-<h1>Home</h1>
-<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident asperiores nesciunt delectus ipsum dolore nihil
-    dolor placeat quos repudiandae animi accusantium, debitis culpa sed aut quae a quisquam totam deserunt? Lorem ipsum
-    dolor sit amet consectetur adipisicing elit. Voluptatem, et. Veritatis, velit. In inventore quibusdam id sunt
-    dignissimos, vero vel pariatur neque odio deleniti aliquid at perferendis, nobis sequi Lorem
-    ipsum dolor sit amet consectetur adipisicing elit. Beatae reiciendis velit voluptates atque nobis ea eos maxime
-    laborum. Cum blanditiis nihil facere reprehenderit. Deserunt dignissimos minus praesentium dolorem commodi
-    beatae?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident asperiores nesciunt delectus ipsum dolore nihil
-    dolor placeat quos repudiandae animi accusantium, debitis culpa sed aut quae a quisquam totam deserunt? Lorem ipsum
-    dolor sit amet consectetur adipisicing elit. Voluptatem, et. Veritatis, velit. In inventore quibusdam id sunt
-    dignissimos, vero vel pariatur neque odio deleniti aliquid at perferendis, nobis sequi Lorem
-    ipsum dolor sit amet consectetur adipisicing elit. Beatae reiciendis velit voluptates atque nobis ea eos maxime
-    laborum. Cum blanditiis nihil facere reprehenderit. Deserunt dignissimos minus praesentium dolorem commodi
-    beatae?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident asperiores nesciunt delectus ipsum dolore nihil
-    dolor placeat quos repudiandae animi accusantium, debitis culpa sed aut quae a quisquam totam deserunt? Lorem ipsum
-    dolor sit amet consectetur adipisicing elit. Voluptatem, et. Veritatis, velit. In inventore quibusdam id sunt
-    dignissimos, vero vel pariatur neque odio deleniti aliquid at perferendis, nobis sequi Lorem
-    ipsum dolor sit amet consectetur adipisicing elit. Beatae reiciendis velit voluptates atque nobis ea eos maxime
-    laborum. Cum blanditiis nihil facere reprehenderit. Deserunt dignissimos minus praesentium dolorem commodi
-    beatae?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident asperiores nesciunt delectus ipsum dolore nihil
-    dolor placeat quos repudiandae animi accusantium, debitis culpa sed aut quae a quisquam totam deserunt? Lorem ipsum
-    dolor sit amet consectetur adipisicing elit. Voluptatem, et. Veritatis, velit. In inventore quibusdam id sunt
-    dignissimos, vero vel pariatur neque odio deleniti aliquid at perferendis, nobis sequi Lorem
-    ipsum dolor sit amet consectetur adipisicing elit. Beatae reiciendis velit voluptates atque nobis ea eos maxime
-    laborum. Cum blanditiis nihil facere reprehenderit. Deserunt dignissimos minus praesentium dolorem commodi
-    beatae?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident asperiores nesciunt delectus ipsum dolore nihil
-    dolor placeat quos repudiandae animi accusantium, debitis culpa sed aut quae a quisquam totam deserunt? Lorem ipsum
-    dolor sit amet consectetur adipisicing elit. Voluptatem, et. Veritatis, velit. In inventore quibusdam id sunt
-    dignissimos, vero vel pariatur neque odio deleniti aliquid at perferendis, nobis sequi Lorem
-    ipsum dolor sit amet consectetur adipisicing elit. Beatae reiciendis velit voluptates atque nobis ea eos maxime
-    laborum. Cum blanditiis nihil facere reprehenderit. Deserunt dignissimos minus praesentium dolorem commodi
-    beatae?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident asperiores nesciunt delectus ipsum dolore nihil
-    dolor placeat quos repudiandae animi accusantium, debitis culpa sed aut quae a quisquam totam deserunt? Lorem ipsum
-    dolor sit amet consectetur adipisicing elit. Voluptatem, et. Veritatis, velit. In inventore quibusdam id sunt
-    dignissimos, vero vel pariatur neque odio deleniti aliquid at perferendis, nobis sequi Lorem
-    ipsum dolor sit amet consectetur adipisicing elit. Beatae reiciendis velit voluptates atque nobis ea eos maxime
-    laborum. Cum blanditiis nihil facere reprehenderit. Deserunt dignissimos minus praesentium dolorem commodi
-    beatae?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident asperiores nesciunt delectus ipsum dolore nihil
-    dolor placeat quos repudiandae animi accusantium, debitis culpa sed aut quae a quisquam totam deserunt? Lorem ipsum
-    dolor sit amet consectetur adipisicing elit. Voluptatem, et. Veritatis, velit. In inventore quibusdam id sunt
-    dignissimos, vero vel pariatur neque odio deleniti aliquid at perferendis, nobis sequi Lorem
-    ipsum dolor sit amet consectetur adipisicing elit. Beatae reiciendis velit voluptates atque nobis ea eos maxime
-    laborum. Cum blanditiis nihil facere reprehenderit. Deserunt dignissimos minus praesentium dolorem commodi
-    beatae?
-</p>
+<div class="wrapper">
+    <section id="wellcome">
+        <div>
+            <h1>What is FLASK AUTH?</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita sed veniam voluptas culpa et qui, nostrum
+                quisquam! Molestiae quo blanditiis dolore odio, excepturi dolorum quasi tenetur doloremque alias ad
+                repellendus.
+            </p>
+    
+            <h2>Registered users: x</h2>
+            <a class="button" href="{{ url_for('auth.login') }}">Sign in</a>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='images/res/model.gif') }}" alt="functions model">
+        </div>
+    </section>
+    
+    <section id="info">
+        <h2>Explore</h2>
+        <div class="container-cards">
+            <div class="card">
+                <i class="fab fa-github icon"></i>
+                <h3>Github repository</h3>
+                <a class="button" href="https://github.com/Angel-Gabriel-Chavez/flask-auth">See more</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-users icon"></i>
+                <h3>Users</h3>
+                <a class="button" href="{{ url_for('public.users') }}">See more</a>
+                
+            </div>
+            <div class="card">
+                <i class="fas fa-shapes icon"></i>
+                <h3>Tutorial</h3>
+                <a class="button" href="{{ url_for('public.tutorial') }}">See more</a>
+            </div>
+        </div>
+    </section>
+</div>
+
 {% endblock %}

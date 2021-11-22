@@ -1,5 +1,8 @@
+from random import choice
 from flask import render_template, redirect
 from flask_login import current_user, login_required
+import random
+# from numpy import random
 from . import bp_public
 from app.models import User
 
@@ -17,8 +20,21 @@ def index():
 @bp_public.route('/home/')
 @login_required
 def home():
+
+    users = User.query.all()
+
+    # 8 random users
+    recomendations = list()
+    i = 0
+    while i <= 8:
+        rand_user = users[random.randint(0, len(users) -1)]
+        if rand_user != current_user:
+            recomendations.append(rand_user)
+            i += 1
+    
     context = {
-        'current_user': current_user
+        'current_user': current_user,
+        'users' : list(set(recomendations))#list(set(random.choice(User.query.all(), 10)))
     }
     return render_template('public/home.html', **context)
 

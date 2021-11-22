@@ -10,14 +10,27 @@
 
 <body>
     <header>
-        <nav>
-            {% block nav %}
-            {% endblock %}
+        <nav class="navbar">
+            <div class="logo">
+                <a href="{{ url_for('public.index') }}"><b>FLASK_AUTH</b></a>
+            </div>
+            <ul class="links">
+                <li><a href="{{ url_for('public.tutorial') }}">Tutorial</a></li>
+                <li><a href="{{ url_for('public.users') }}">Users</a></li>
+        
+                {% if not current_user.is_authenticated %}
+                    <li><a href="{{ url_for('auth.register') }}">Sign up</a></li>
+                    <li><a  class="button"  href="{{ url_for('auth.login') }}">Sign in</a></li>
+                {% else %}
+                    <li><a class="button" href="{{ url_for('auth.logout') }}">Sign out</a></li>
+                {% endif %}
+            </ul>
         </nav>
     </header>
 
     {% block content %}
     {% endblock %}
+
     <footer>
         <div class="about">
             <div>

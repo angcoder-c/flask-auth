@@ -3,21 +3,6 @@
     Tutorial
 {% endblock %}
 
-{% block nav %}
-    <ul>
-        <li><a href="{{ url_for('public.index') }}"><b>FLASK_AUTH</b></a></li>
-        <li><a href="{{ url_for('public.tutorial') }}">Tutorial</a></li>
-        <li><a href="{{ url_for('public.users') }}">Users</a></li>
-
-        {% if not current_user.is_authenticated %}
-            <li><a href="{{ url_for('auth.register') }}">Registrarse</a></li>
-            <li><a href="{{ url_for('auth.login') }}">Iniciar sesión</a></li>
-        {% else %}
-            <li><a href="{{ url_for('auth.logout') }}">Cerrar sesión</a></li>
-        {% endif %}
-    </ul>
-{% endblock %}
-
 {% block content %}
 
     <h1>Tutorial</h1>

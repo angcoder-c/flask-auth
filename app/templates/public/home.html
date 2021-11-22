@@ -3,20 +3,40 @@
     Home
 {% endblock %}
 
-{% block nav %}
-    <ul>
-        <li><a href="{{ url_for('public.index') }}"><b>FLASK_AUTH</b></a></li>
-        <li><a href="{{ url_for('public.tutorial') }}">Tutorial</a></li>
-        <li><a href="{{ url_for('public.users') }}">Users</a></li>
-        <li><a href="{{ url_for('auth.logout') }}">Cerrar sesión</a></li>
-    </ul>
-{% endblock %}
-
 {% block content %}
-
-    <h1>Bienvenido, 
-        {% if current_user.name %} 
-            {{ current_user.name }} 
+<div class="wrapper">
+    <h1 class="user-title">Hola,
+        {% if current_user.name %}
+            {{ current_user.name }}
         {% endif %}
     </h1>
+
+    <section class="users">
+        {% for user in users %}
+            {% if user != current_user %}
+                <div class="user">
+                    <h3><a href="{{ url_for('public.profile', name = user.name) }}">{{ user.name }}</a></h3>
+                    <p>{{ user.email }}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <div class="user plus">
+            <a href="{{ url_for('public.users') }}"><i class="fas fa-plus"></i></a>
+        </div>
+    </section>
+    
+    <section class="tutorial">
+        <div>
+            <i class="fas fa-tools icon"></i>
+        </div>
+        <div>
+            <h3>How was FLASK_AUTH made?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur adipisci optio illo vero rerum laborum
+                ex.</p>
+            <a class="button" href="{{ url_for('public.tutorial') }}">See more</a>
+        </div>
+    </section>
+</div>
+
 {% endblock %}
