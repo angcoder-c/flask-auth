@@ -1,10 +1,12 @@
 import os
 from flask import Flask
+from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from config import DefaultConfig
 
 db = SQLAlchemy()
+migrate = Migrate()
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
@@ -15,6 +17,7 @@ def create_app():
     app.config.from_object(DefaultConfig)
     
     db.init_app(app)
+    migrate.init_app(app, db)
     login_manager.init_app(app)
 
     from .public import bp_public
