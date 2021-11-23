@@ -49,7 +49,7 @@ def tutorial():
 def users():
     context = {
         'current_user': current_user,
-        'users_list' : User.query.all()
+        'users' : User.query.all()
     }
     return render_template('public/users.html', **context)
 

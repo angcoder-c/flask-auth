@@ -4,12 +4,19 @@
 {% endblock %}
 
 {% block content %}
-    {% for user in users_list %}
-        {% if user != current_user %}
-            <div class="users_list">
-                <h3><a href="{{ url_for('public.profile', name = user.name) }}">{{ user.name }}</a></h3>
-                <p>{{ user.email }}</p>
-            </div>
-        {% endif %}
-    {% endfor %}
+    <section class="wrapper">
+        <h1>
+            Registered users
+        </h1>
+        <div class="users">
+            {% for user in users %}
+                {% if user != current_user %}
+                    <div class="user">
+                        <h3><a href="{{ url_for('public.profile', name = user.name) }}">{{ user.name }}</a></h3>
+                        <p>{{ user.email }}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
 {% endblock %}
