@@ -1,6 +1,1 @@
-images/
-
-*.png
-*.svg
-*.jpg
-*.gif
+static/images/res/

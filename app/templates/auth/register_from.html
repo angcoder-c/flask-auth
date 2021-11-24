@@ -5,15 +5,24 @@
 {% endblock %}
 
 {% block content %}
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {{ form.hidden_tag() }}
         <div>
             {{ form.name.label }}
             {{ form.name }}<br>
+
             {{ form.email.label }}
             {{ form.email }}<br>
+
             {{ form.password.label }}
-            {{ form.password }}<br> 
+            {{ form.password }}<br>
+
+            {{ form.profile_picture.label }}
+            {{ form.profile_picture }}<br>
+
+            {{ form.cover_photo.label }}
+            {{ form.cover_photo }}<br>
+
             {{ form.submit() }}
         </div>
     </form>

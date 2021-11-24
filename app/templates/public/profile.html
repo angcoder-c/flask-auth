@@ -4,6 +4,17 @@
 {% endblock %}
 
 {% block content %}
+    {% if user.cover_photo %}
+        <div>
+            <img src="{{ url_for('static', filename=f'images/res/{user.cover_photo}') }}" />
+        </div>
+    {% endif %}
+    {% if user.profile_picture %}
+        <div>
+            <img src="{{ url_for('static', filename=f'images/res/{user.profile_picture}') }}" />
+        </div>
+    {% endif %}
+    
     <h1>{{ user.name }}</h1>
     <p>{{ user.email }}</p>
 {% endblock %}
