@@ -1,29 +1,55 @@
 {% extends "base/base_form.html" %}
 
 {% block title %}
-    Registro de usuarios
+    Register
 {% endblock %}
 
 {% block content %}
-    <form method="post" enctype="multipart/form-data">
-        {{ form.hidden_tag() }}
-        <div>
-            {{ form.name.label }}
-            {{ form.name }}<br>
+    <div class="form-container">
+        <form method="post" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <h1>Register</h1>
+            <div class="fields">
+                <div class="sections">
+                    <div>
+                        {{ form.name }}
+                        {{ form.name.label }}
+                    </div>
+                    
+                    <div>
+                        {{ form.email }}
+                        {{ form.email.label }}
+                    </div>
+        
+                    <div>
+                        {{ form.password }}
+                        {{ form.password.label }}
+                    </div>
 
-            {{ form.email.label }}
-            {{ form.email }}<br>
+                    <div>
+                        {{ form.description }}
+                        {{ form.description.label }}
+                    </div>
+                </div>
+                <div class="sections">
+                    <div  class='input-file'>
+                        {{ form.profile_picture(id='profile_picture') }}
+                        {{ form.profile_picture.label(for='profile_picture') }}
+                    </div>
+        
+                    <div class='input-file'>
+                        {{ form.cover_photo(id='cover_photo') }}
+                        {{ form.cover_photo.label(for='cover_photo') }}
+                    </div>
+        
+                    <div class="color-field">
+                        {{ form.profile_color }}
+                        {{ form.profile_color.label }}
+                    </div>
+                </div>
+            </div>
 
-            {{ form.password.label }}
-            {{ form.password }}<br>
-
-            {{ form.profile_picture.label }}
-            {{ form.profile_picture }}<br>
-
-            {{ form.cover_photo.label }}
-            {{ form.cover_photo }}<br>
-
-            {{ form.submit() }}
-        </div>
-    </form>
+            {{ form.submit(class='button submit') }}
+        </form>
+    </div>
 {% endblock %}

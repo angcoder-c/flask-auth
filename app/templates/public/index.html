@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 
 {% block title %}
-Conoce personas interesantes
+    Index
 {% endblock %}
 
 {% block content %}
@@ -15,7 +15,7 @@ Conoce personas interesantes
                 repellendus.
             </p>
     
-            <h2>Registered users: x</h2>
+            <h2>Registered users: {{ registered_users }}</h2>
             <a class="button" href="{{ url_for('auth.login') }}">Sign in</a>
         </div>
         <div>

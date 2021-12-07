@@ -5,14 +5,25 @@
 {% endblock %}
 
 {% block content %}
-    <form method="post">
-        {{ form.hidden_tag() }}
-        <div>
-            {{ form.email.label }}
-            {{ form.email }}<br>
-            {{ form.password.label }}
-            {{ form.password }}<br> 
-            {{ form.submit() }}
-        </div>
-    </form>
+    <div class="form-container">
+        <form method="post" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <h1>Sign in</h1>
+            <div class="fields">
+                <div class="sections">
+                    <div>
+                        {{ form.email }}
+                        {{ form.email.label }}
+                    </div>
+    
+                    <div>
+                        {{ form.password }}
+                        {{ form.password.label }}
+                    </div>
+                </div>
+            </div>
+            
+            {{ form.submit(class='button submit') }}
+        </form>
+    </div>
 {% endblock %}

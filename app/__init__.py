@@ -6,7 +6,7 @@ from flask_login import LoginManager
 from config import DefaultConfig
 
 db = SQLAlchemy()
-migrate = Migrate()
+migrate = Migrate(compare_type=True)
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'

@@ -2,11 +2,10 @@
 <html lang="es">
     <head>
         <meta charset="utf-8" />
-        <title>App | {% block title %}{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     </head>
     <body>
-        <h1>base</h1>
         {% block content %}
         {% endblock %}
     </body>

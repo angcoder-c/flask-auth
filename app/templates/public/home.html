@@ -5,16 +5,17 @@
 
 {% block content %}
 <div class="wrapper">
+    <a class="button" href="{{ url_for('auth.delete') }}">Delete acount</a>
     <h1>Hola,
         {% if current_user.name %}
             {{ current_user.name }}
         {% endif %}
     </h1>
-
+    
     <section class="users">
         {% for user in users %}
             {% if user != current_user %}
-                <div class="user">
+                <div class="user" style="background-color: {{ user.profile_color }}">
                     <h3><a href="{{ url_for('public.profile', name = user.name) }}">{{ user.name }}</a></h3>
                     <p>{{ user.email }}</p>
                 </div>
@@ -31,7 +32,7 @@
             <i class="fas fa-tools icon"></i>
         </div>
         <div>
-            <h3>How was FLASK_AUTH made?</h3>
+            <h3>How Blueprints are used in Flask?</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur adipisci optio illo vero rerum laborum
                 ex.</p>
             <a class="button" href="{{ url_for('public.tutorial') }}">See more</a>

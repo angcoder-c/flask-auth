@@ -11,8 +11,10 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(64), nullable = False, unique = True)
     email = db.Column(db.String(256), nullable = False, unique = True)
+    description = db.Column(db.String(140), nullable = False)
     profile_picture = db.Column(db.String)
     cover_photo = db.Column(db.String)
+    profile_color = db.Column(db.String)
     password = db.Column(db.String(128), nullable = False)
 
     def set_password(self, password):
