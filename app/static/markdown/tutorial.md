@@ -56,7 +56,7 @@ def index():
 
 To see the result we must use the following commands in the console: 
 
-***Consola***
+***Console***
 
 ```
 set FLASK_APP=main.py

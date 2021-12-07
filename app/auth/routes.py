@@ -33,23 +33,27 @@ def register():
             profile_picture = secure_filename(file1.filename)
             profile_picture_path = os.path.join(images_dir, profile_picture)
             file1.save(profile_picture_path)
+            p_img_dir = 'images/profiles/'
         elif file1 is None:
             profile_picture = 'profile_default.png'
+            p_img_dir = 'images/res/'
 
         if file2:
             cover_photo = secure_filename(file2.filename)
             cover_photo_path = os.path.join(images_dir, cover_photo)
             file2.save(cover_photo_path)
+            c_img_dir = 'images/profiles/'
         elif file2 is None:
             cover_photo = 'cover_default.png'
+            c_img_dir = 'images/res/'
         
         user = User.get_by_email(email)
         if user is not None:
             return redirect(url_for('auth.login'))
         else:
             user = User(name = name, email = email, description = description)
-            user.profile_picture = url_for('static', filename=os.path.join('images/profiles/', profile_picture))
-            user.cover_photo = url_for('static', filename=os.path.join('images/profiles/', cover_photo))
+            user.profile_picture = url_for('static', filename=os.path.join(p_img_dir, profile_picture))
+            user.cover_photo = url_for('static', filename=os.path.join(c_img_dir, cover_photo))
             user.profile_color = profile_color
             user.set_password(password)
             db.session.add(user)
