@@ -6,42 +6,91 @@ body {
 }
 
 .wrapper {
-    padding: 2em 5em 5em 5em;
+    padding: 2em 5em 5em;
+    min-height: 100vh;
 }
 
 h1 {
     font-size: 2em;
 }
-/*NavBar*/
+
 a {
     text-decoration: none;
     color: white;
 }
 
-.links li {
-    list-style: none;
-    float: left;
+ul {
+    gap: 2rem;
 }
 
+li {
+    list-style: none;
+}
+
+li a:hover {
+    color: #999;
+}
+
+/*NavBar*/
+
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
+    margin: 0;
     background-color: #0D1D23;
     box-shadow: -0px 0px 60px 0px #000;
 }
-  
-.links li a, .logo{
-    display: block;
-    color: #fff;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+
+.menu_buttons {
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    right: 0;
 }
   
-.links li a:hover{
-    color: #999;
+.menu_buttons .close {
+    display: none;
+}
+
+.checkbox {
+    display: none;
+}
+
+.menu_buttons .open, 
+.menu_buttons .close {
+    margin: 1rem 2rem;
+}
+
+.navbar_menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+    margin: 0 1rem;
+}
+
+.navbar_menu li:first-child {
+    display: block;
+    margin-right: auto;
+    font-weight: bold;
+}
+
+.navbar_menu li {
+    display: block;
+}
+
+#checkbox:checked ~ ul.navbar_menu {
+    padding-bottom: 2rem;
+}
+
+#checkbox:checked ~ ul.navbar_menu li {
+    display: block;
+}
+  
+#checkbox:checked ~ label.menu_buttons .close {
+    display: block;
+}
+  
+#checkbox:checked ~ label.menu_buttons .open {
+    display: none;
 }
 
 /*Footer*/
@@ -54,7 +103,7 @@ footer {
     box-shadow: -0px 0px 60px 0px #000;
 }
 .footer {
-    display: inline-flex;
+    display: flex;
 }
 .about {
     display: inherit;
@@ -64,17 +113,22 @@ footer {
     text-align: justify;
 }
 
-.about div {
-    width: 100%;
+.logo {
     text-align: center;
+}
+
+.about div, b {
+    width: 100%;
     margin: auto;
 }
-.about div b {
+.about b {
     font-size: 25px;
+    position: cover;
 }
 
 .contact ul {
-    display: inline-grid;
+    display: grid;
+    padding: 0;
 }
 
 /* ----------
@@ -87,9 +141,9 @@ footer {
     height: auto;
 }
 
-#wellcome div {
+.landing {
     width: 100%;
-    padding: 5% 0 5% 5%;
+    padding: 5%;
     margin: auto;
 }
 
@@ -107,8 +161,9 @@ footer {
     box-shadow: 0px 0px 10px 0px #fff;
     color: #fff;
 }
-#wellcome div img {
-    height: 500px;
+.image {
+    font-size: 25em;
+    text-align: center;
 }
 
 /*Information*/
@@ -213,15 +268,6 @@ footer {
     background-position: center;
 }
 
-.picture {
-    min-width: 10em;
-    min-height: 10em;
-    border-radius: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
 .user-info {
     display: flex;
     width: 60%;
@@ -230,6 +276,15 @@ footer {
 
 .user-info div {
     padding: 10px;
+}
+
+.user-info div:first-child {
+    padding: 10%;
+    margin: auto;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 /*
@@ -258,11 +313,12 @@ footer {
 
 .sections {
     width: -webkit-fill-available;
-    margin: 10px;
+    margin: 10px 0;
 }
 
 .sections div {
     margin: 10px;
+    display: grid;
 }
 
 input, textarea {
@@ -286,6 +342,7 @@ input:focus, textarea:focus {
 
 .submit {
     height: 40px;
+    width: 100%;
     border: none;
 }
 
@@ -295,8 +352,8 @@ input:focus, textarea:focus {
 
 .input-file {
     background-color: #008000;
-    display: flex;
     border-radius: 5px;
+    padding: 10%;
     height: 3em;
 }
 
@@ -309,12 +366,13 @@ input:focus, textarea:focus {
 }
 
 .color-field {
-    height: 58%;
+    height: 38%;
 }
 
 .color-field input{
     padding: 0;
-    height: 79.3%;
+    width: 100%;
+    height: 100%;
 }
 
 /*Blog*/
@@ -345,6 +403,88 @@ code {
 
 blockquote {
     border-left: 5px solid #fff;
+    background-color: #0D1D23;
     padding-left: inherit;
     margin: auto;
+}
+
+blockquote a {
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    
+    #wellcome, .container-cards {
+        display: grid;
+    }
+    #wellcome div {
+        padding: 5%;
+        text-align: center;
+    }
+    .card {
+        width: 100%;
+        padding: 20px 5px;
+    }
+
+    .users {
+        grid-template-columns: repeat(auto-fill, minmax(25%, 1fr))
+    }
+
+    .user-info {
+        width: 45%;
+        display: grid;
+        text-align: center;
+    }
+
+    .user-info div:first-child {
+        padding: 30%;
+    }
+
+    .footer {
+        display: grid;
+    }
+    
+    .about {
+        margin: auto;
+        text-align: center;
+        width: auto;
+    }
+
+    .footer hr {
+        width: 50%;
+    }
+}
+
+@media (max-width: 595px) {
+
+    .menu_buttons{
+        display: block;
+    }
+      
+    .navbar_menu{
+        flex-direction: column;
+    }
+      
+    .navbar_menu li {
+        display: none;
+    }
+
+
+    .image {
+        font-size: 20em;
+    }
+
+    .users {
+        grid-template-columns: repeat(auto-fill, minmax(46%, 1fr))
+    }
+
+    .tutorial {
+        display: grid;
+    }
+}
+
+@media (max-width: 500px) {
+    .image {
+        font-size: 15em;
+    }
 }

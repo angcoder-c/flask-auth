@@ -8,7 +8,7 @@
 
 <div class="wrapper">
     <section id="wellcome">
-        <div>
+        <div class="landing">
             <h1>What is FLASK AUTH?</h1>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita sed veniam voluptas culpa et qui, nostrum
                 quisquam! Molestiae quo blanditiis dolore odio, excepturi dolorum quasi tenetur doloremque alias ad
@@ -18,8 +18,8 @@
             <h2>Registered users: {{ registered_users }}</h2>
             <a class="button" href="{{ url_for('auth.login') }}">Sign in</a>
         </div>
-        <div>
-            <img src="{{ url_for('static', filename='images/res/model.gif') }}" alt="functions model">
+        <div class="landing image">
+            <i class="fas fa-sign-in-alt"></i>
         </div>
     </section>
     

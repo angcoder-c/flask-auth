@@ -11,21 +11,53 @@
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo">
-                <a href="{{ url_for('public.index') }}"><b>FLASK_AUTH</b></a>
-            </div>
-            <ul class="links">
-                <li><a href="{{ url_for('public.tutorial') }}">Tutorial</a></li>
-                <li><a href="{{ url_for('public.users') }}">Users</a></li>
-        
+            <input type="checkbox" id="checkbox" class="checkbox">
+            <label for="checkbox" class="menu_buttons">
+                <i class="fas fa-bars open"></i>
+                <i class="far fa-times-circle close"></i>
+            </label>
+
+            <ul class="navbar_menu">
+    
+                <li class="navbar_logo">
+                    <a href="{{ url_for('public.index') }}">
+                        FLASK_AUTH
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="{{ url_for('public.tutorial') }}">
+                        Tutorial
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="{{ url_for('public.users') }}">
+                        Users
+                    </a>
+                </li>
+    
                 {% if not current_user.is_authenticated %}
-                    <li><a href="{{ url_for('auth.register') }}">Sign up</a></li>
-                    <li><a  class="button"  href="{{ url_for('auth.login') }}">Sign in</a></li>
+                    <li>
+                        <a href="{{ url_for('auth.register') }}">
+                            Sign up
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a  class="button"  href="{{ url_for('auth.login') }}">
+                            Sign in
+                        </a>
+                    </li>
                 {% else %}
-                    <li><a class="button" href="{{ url_for('auth.logout') }}">Sign out</a></li>
+                    <li>
+                        <a class="button" href="{{ url_for('auth.logout') }}">
+                            Sign out
+                        </a>
+                    </li>
                 {% endif %}
             </ul>
-        </nav>
+        </nav>            
     </header>
 
     {% block content %}
@@ -33,10 +65,8 @@
 
     <footer>
         <div class="footer">
-            <div class="about">
-                <div>
-                    <b>FLASK_AUTH</b>
-                </div>
+            <div class="about logo">
+                <b>FLASK_AUTH</b>
             </div>
             <hr>
             <div class="about">
@@ -47,10 +77,10 @@
             <hr>
             <div class="about">
                 <div class="contact">
-                    <ul class="links">
-                        <li><a href=""> <i class="fab fa-facebook"></i> Facebook</a></li>
-                        <li><a href=""> <i class="fab fa-instagram"></i> Instagram</a></li>
-                        <li><a href=""> <i class="fab fa-youtube"></i> Youtube</a></li>
+                    <ul>
+                        <li><a href="#"> <i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"> <i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"> <i class="fab fa-youtube"></i> Youtube</a></li>
                     </ul>
                 </div>
             </div>
