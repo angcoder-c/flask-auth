@@ -22,7 +22,7 @@ C:\project\root> venv\Scripts\activate
 
 ## Install dependencies
 ```
-(venv) C:\project\root> pip install -r requirements.txt
+(venv) C:\project\root> python -m pip install -r requirements.txt
 ```
 
 ## Run 
