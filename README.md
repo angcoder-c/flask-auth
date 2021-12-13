@@ -15,14 +15,14 @@ $ git clone https://github.com/Angel-Gabriel-Chavez/flask-auth.git
 ```
 Create the virtual environment, and activate it.
 ```
-C:\project\root> cd flask-auth
+> cd flask-auth
 C:\project\root> python -m venv venv
 C:\project\root> venv\Scripts\activate
 ```
 
 ## Install dependencies
 ```
-(venv) C:\project\root> pip install -r requirements.txt
+(venv) C:\project\root> python -m pip install -r requirements.txt
 ```
 
 ## Run 
