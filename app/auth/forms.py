@@ -13,9 +13,9 @@ class RegisterForm(FlaskForm):
     profile_picture = FileField(label = 'Profile Picture', validators=[FileAllowed(['jpg', 'png'])])
     cover_photo = FileField(label = 'Cover Photo', validators=[FileAllowed(['jpg', 'png'])])
     profile_color = StringField(label = 'Profile color', widget=ColorInput(), default='#051318')
-    submit = SubmitField(label='Registrar')
+    submit = SubmitField(label='Sign up')
 
 class LoginForm(FlaskForm):
     email= StringField(label='Email', validators=[DataRequired(), Email()])
     password = PasswordField(label='Password', validators=[DataRequired()])
-    submit = SubmitField(label='Iniciar sesión')
+    submit = SubmitField(label='Sign in')

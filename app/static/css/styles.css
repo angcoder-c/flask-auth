@@ -129,6 +129,7 @@ footer {
 .contact ul {
     display: grid;
     padding: 0;
+    text-align: center;
 }
 
 /* ----------
@@ -486,5 +487,24 @@ blockquote a {
 @media (max-width: 500px) {
     .image {
         font-size: 15em;
+    }
+}
+
+@media (max-width: 400px) {
+    .user-info {
+        width: 80%;
+        height: 60%
+    }
+    
+    .user-info div:first-child {
+        padding: 10%;
+    }
+    
+    .user-info div:nth-child(2n) {
+        overflow: auto;
+    }
+    
+    .user-info div:nth-child(2n) h1{
+        margin: auto
     }
 }
