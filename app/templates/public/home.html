@@ -6,7 +6,7 @@
 {% block content %}
 <div class="wrapper">
     <a class="button" href="{{ url_for('auth.delete') }}">Delete account</a>
-    <h1>Hola,
+    <h1>Hello,
         {% if current_user.name %}
             {{ current_user.name }}
         {% endif %}
