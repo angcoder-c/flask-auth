@@ -277,6 +277,7 @@ footer {
 
 .user-info div {
     padding: 10px;
+    overflow: auto;
 }
 
 .user-info div:first-child {
