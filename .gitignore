@@ -6,7 +6,8 @@ venv/
 *.pyc
 __pycache__/
 
-app/static/images/profiles/*
+app/static/images/profiles/*.png
+app/static/images/profiles/*.jpg
 instance/
 
 .pytest_cache/
