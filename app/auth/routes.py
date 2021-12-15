@@ -14,11 +14,11 @@ def register():
         return redirect(url_for('public.home'))
     form = RegisterForm()
     if form.validate_on_submit():
-        name = form.name.data
-        email = form.email.data
-        description = form.description.data
+        name = escape(form.name.data)
+        email = escape(form.email.data)
+        description = escape(form.description.data)
         profile_color = form.profile_color.data
-        password = form.password.data
+        password = escape(form.password.data)
 
         images_dir = current_app.config['PROFILES_IMG_DIR']
 
