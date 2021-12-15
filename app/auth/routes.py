@@ -1,6 +1,5 @@
 import os
-import shutil
-from flask import render_template, redirect, url_for, request, current_app
+from flask import render_template, redirect, url_for, request, current_app, escape
 from flask_login import current_user, login_user, logout_user, login_required
 from flask_wtf import file
 from werkzeug.utils import secure_filename
