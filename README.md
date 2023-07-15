@@ -11,7 +11,7 @@ In this project I will use `SQLite` as a database administrator and it is recomm
 ## How to start?
 Clone the repository.
 ```
-$ git clone https://github.com/Angel-Gabriel-Chavez/flask-auth.git
+$ git clone https://github.com/angcoder-c/flask-auth.git
 ```
 Create the virtual environment, and activate it.
 ```
